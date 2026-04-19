@@ -88,3 +88,20 @@ You only have to do the setup once. From now on, whenever you want to use the ap
 4. The app will automatically launch your web browser and open the interface at `http://localhost:5173`.
 
 *To close the app when you are done, simply go to those black command prompt windows and close them (click the X).*
+
+### Alternatively: Running Manually (If start.bat doesn't work)
+If double-clicking the `start.bat` file doesn't work for you, you can run the app manually. You will need to open **two** separate command prompt windows in the project folder.
+
+**Window 1: Start the Backend (Commands)**
+```cmd
+uvicorn backend.main:app --reload --port 8000
+```
+*(If the above fails and you are using a virtual environment, run `venv\Scripts\activate` first)*
+
+**Window 2: Start the Frontend (Commands)**
+```cmd
+cd frontend
+npm run dev
+```
+
+Once both are running, open your browser and go to `http://localhost:5173`.
