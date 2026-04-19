@@ -94,7 +94,7 @@ If double-clicking the `start.bat` file doesn't work for you, you can run the ap
 
 **Window 1: Start the Backend (Commands)**
 ```cmd
-uvicorn backend.main:app --reload --port 8000
+python -m uvicorn backend.main:app --reload --port 8000
 ```
 *(If the above fails and you are using a virtual environment, run `venv\Scripts\activate` first)*
 
