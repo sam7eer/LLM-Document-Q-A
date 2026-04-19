@@ -104,4 +104,7 @@ cd frontend
 npm run dev
 ```
 
+> **🚨 TROUBLESHOOTING (If npm gives a red "running scripts is disabled" error):**
+> This means you opened PowerShell instead of Command Prompt. Don't worry! Just type `cmd` and press Enter to switch to the normal Command Prompt, and then type `npm run dev` again. Alternatively, you can type **`npm.cmd run dev`** instead!
+
 Once both are running, open your browser and go to `http://localhost:5173`.
