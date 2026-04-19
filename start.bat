@@ -2,8 +2,11 @@
 echo Starting DocuMind Q^&A System...
 
 echo Starting FastAPI Backend...
-start cmd /k "venv\Scripts\activate && uvicorn backend.main:app --reload --port 8000"
-
+IF EXIST "venv\Scripts\activate.bat" (
+    start cmd /k "venv\Scripts\activate && uvicorn backend.main:app --reload --port 8000"
+) ELSE (
+    start cmd /k "uvicorn backend.main:app --reload --port 8000"
+)
 echo Starting Vite Frontend...
 start cmd /k "cd frontend && npm run dev"
 

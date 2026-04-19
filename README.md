@@ -63,6 +63,9 @@ Copy and paste each of the following lines into the black Terminal box, one at a
    cd ..
    ```
 
+> **🚨 TROUBLESHOOTING (If Step 1 fails):**
+> Sometimes on Windows, step 1 (`python -m venv venv`) will throw a red error that mentions `ensurepip`. If this happens, your Windows Python is just being stubborn. Don't panic! **You can completely skip Step 1 and Step 2.** Just start at Step 3 (`pip install...`) and the app will still work perfectly.
+
 ### Step 5: Configure the AI (Environment Variables)
 1. Go into the `backend` folder.
 2. You will see a file named `.env.example`.
