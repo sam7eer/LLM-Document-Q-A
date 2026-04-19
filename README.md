@@ -1,65 +1,87 @@
 # DocuMind - LLM-Based Q&A System
 
-A full-stack RAG (Retrieval-Augmented Generation) application built to answer questions from your uploaded documents using local embeddings and Google Gemini API.
+A full-stack application built to answer questions from your uploaded documents using local embeddings and Google Gemini API.
 
 ---
 
-## 🛠️ Step-by-Step Setup Guide (For Beginners)
+## 🛠️ Complete Beginner's Guide to Running This Project
 
-If you don't know how to code, don't worry! Follow these steps exactly to get the project running on your computer.
+If you have never touched code before, don't worry! This guide will walk you through every single step to get this project running on your computer.
 
 ### Step 1: Install Required Software
-Before you start, make sure you have the following installed on your computer:
+Before you start, you need to install two programs that make the code run.
 1. **Python (3.11 or newer)**: [Download here](https://www.python.org/downloads/).
-   - **IMPORTANT**: During installation, make sure to check the box that says **"Add Python to PATH"**.
-2. **Node.js**: [Download here](https://nodejs.org/). (Download the "LTS" version).
-3. **Get a Google Gemini API Key**: [Get it here](https://aistudio.google.com/). You will need this to make the AI work.
+   - ⚠️ **CRITICAL STEP**: When you open the Python installer, look at the very bottom of the first screen. You **MUST** check the box that says **"Add Python to PATH"** before clicking "Install". If you miss this, the project will not work!
+2. **Node.js**: [Download here](https://nodejs.org/). (Download the "LTS" version. You can just click "Next" on everything during installation).
+3. **Get a Google Gemini API Key**: [Get it here](https://aistudio.google.com/). Click "Get API Key" and create one. Save this text somewhere—you will need it later.
 
-### Step 2: Set Up the Project
-1. Open up a terminal (Command Prompt) inside this project folder.
-   - *Tip*: You can go to the project folder in File Explorer, click the address bar at the top, type `cmd`, and press Enter.
+### Step 2: Download the Project
+You don't need to do anything complicated to download the code.
+1. Scroll to the top of this GitHub page.
+2. Click the green **"<> Code"** button.
+3. Click **"Download ZIP"**.
+4. Once it downloads, find the ZIP file on your computer, Right-Click it, and select **"Extract All..."**.
+5. Open the extracted folder until you see files named `README.md`, `start.bat`, and folders like `frontend` and `backend`.
 
-2. Create a "Virtual Environment" (a safe space for Python files):
-   Type the following command and press Enter:
+### Step 3: Open the Terminal (Command Prompt)
+1. Inside the extracted project folder, look at the very top of the File Explorer window (the address bar where it shows the path, like `C:\Downloads\LLM-Document-Q-A`).
+2. Click directly on that address bar so the text highlights.
+3. Type `cmd` and press **Enter**.
+4. A black box (Command Prompt) will appear. You will be typing commands into this black box.
+
+### Step 4: Set Up the Project (One-Time Only)
+Copy and paste each of the following lines into the black Terminal box, one at a time, and press **Enter** after each one. Let the process finish before doing the next one.
+
+1. Create a safe space for Python (Virtual Environment):
    ```cmd
    python -m venv venv
    ```
 
-3. Activate the Virtual Environment:
-   Type the following command and press Enter:
+2. Turn on the Virtual Environment:
    ```cmd
    venv\Scripts\activate
    ```
+   *(You should now see `(venv)` at the beginning of the text line.)*
 
-4. Install the Python requirements for the Backend:
-   Type the following command and press Enter:
+3. Install the Python requirements:
    ```cmd
    pip install -r backend\requirements.txt
    ```
 
-5. Install the Node modules for the Frontend:
-   Type the following commands one by one, pressing Enter after each:
+4. Go into the frontend folder:
    ```cmd
    cd frontend
+   ```
+
+5. Install the Node modules:
+   ```cmd
    npm install
+   ```
+
+6. Go back to the main folder:
+   ```cmd
    cd ..
    ```
 
-### Step 3: Configure the AI (Environment Variables)
+### Step 5: Configure the AI (Environment Variables)
 1. Go into the `backend` folder.
-2. You will see a file named `.env.example`. Make a copy of this file and rename the copy to `.env` (just `.env`, nothing else).
-3. Open the new `.env` file with a text editor (like Notepad).
-4. Replace `your_google_api_key_here` with the exact Google API Key you got in Step 1. Save and close the file.
+2. You will see a file named `.env.example`.
+3. Make a copy of this file and rename the copy to exactly `.env` (just `.env`, remove the `.example` part).
+   *(If you get a warning about changing file extensions, say Yes).*
+4. Open the new `.env` file with a text editor (like Notepad). You can Right-Click -> "Open with" -> "Notepad".
+5. Find the line that says `GOOGLE_API_KEY=your_google_api_key_here`.
+6. Replace `your_google_api_key_here` with the exact Google API Key you got in Step 1.
+7. Save and close the file.
 
 ---
 
 ## 🚀 Running the App
 
-Once you have finished the setup above, you never need to repeat it.
+You only have to do the setup once. From now on, whenever you want to use the app, just do this:
 
-To start the app:
-1. Simply double-click the `start.bat` file located in the main folder.
-2. Two command prompt windows will open automatically. Please leave them open!
-3. The app will launch your web browser and open the interface at `http://localhost:5173`.
+1. Go to the project folder.
+2. Double-click the `start.bat` file.
+3. Two command prompt windows will open. Leave them open—they are running the app!
+4. The app will automatically launch your web browser and open the interface at `http://localhost:5173`.
 
-*If you want to close the app, go to the command prompt windows and press `Ctrl + C`, or simply close the windows.*
+*To close the app when you are done, simply go to those black command prompt windows and close them (click the X).*
