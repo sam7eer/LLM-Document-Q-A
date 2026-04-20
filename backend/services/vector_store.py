@@ -11,11 +11,23 @@ class VectorStore:
     
     def __init__(self):
         self.settings = get_settings()
-        self.client = chromadb.PersistentClient(path=self.settings.chroma_persist_dir)
-        self.collection = self.client.get_or_create_collection(
-            name="documents",
-            metadata={"hnsw:space": "cosine"}
-        )
+        self._client = None
+        self._collection = None
+
+    @property
+    def client(self):
+        if self._client is None:
+            self._client = chromadb.PersistentClient(path=self.settings.chroma_persist_dir)
+        return self._client
+
+    @property
+    def collection(self):
+        if self._collection is None:
+            self._collection = self.client.get_or_create_collection(
+                name="documents",
+                metadata={"hnsw:space": "cosine"}
+            )
+        return self._collection
 
     def add_document(self, doc_id: str, chunks: list[str], embeddings: list[list[float]], metadatas: list[dict]):
         """Adds a document's chunks and embeddings to the DB."""
