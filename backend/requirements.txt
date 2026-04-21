@@ -5,7 +5,7 @@ google-generativeai
 chromadb
 langchain
 langchain-community
-pymupdf
+pypdf
 python-docx
 python-dotenv
 pydantic-settings

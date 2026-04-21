@@ -1,5 +1,4 @@
 import os
-import fitz  # PyMuPDF
 from docx import Document
 
 class DocumentProcessor:
@@ -24,18 +23,20 @@ class DocumentProcessor:
 
     @staticmethod
     def _parse_pdf(file_path: str) -> list[dict]:
+        import pypdf
         pages = []
-        with fitz.open(file_path) as doc:
-            for page_num in range(len(doc)):
-                page = doc.load_page(page_num)
-                text = page.get_text()
-                # Optional: clean up extra whitespace or hyphens
-                text = text.replace('\x00', '')
-                if text.strip():
-                    pages.append({
-                        "text": text,
-                        "metadata": {"page": page_num + 1}
-                    })
+        with open(file_path, "rb") as f:
+            reader = pypdf.PdfReader(f)
+            for page_num in range(len(reader.pages)):
+                page = reader.pages[page_num]
+                text = page.extract_text()
+                if text:
+                    text = text.replace('\x00', '')
+                    if text.strip():
+                        pages.append({
+                            "text": text,
+                            "metadata": {"page": page_num + 1}
+                        })
         return pages
 
     @staticmethod
