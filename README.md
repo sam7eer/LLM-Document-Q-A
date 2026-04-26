@@ -16,65 +16,66 @@ Before you start, you need to install two programs that make the code run.
 3. **Get a Google Gemini API Key**: [Get it here](https://aistudio.google.com/). Click "Get API Key" and create one. Save this text somewhere—you will need it later.
 
 ### Step 2: Download the Project
-You don't need to do anything complicated to download the code.
-1. Scroll to the top of this GitHub page.
-2. Click the green **"<> Code"** button.
-3. Click **"Download ZIP"**.
-4. Once it downloads, find the ZIP file on your computer, Right-Click it, and select **"Extract All..."**.
-5. Open the extracted folder until you see files named `README.md`, `start.bat`, and folders like `frontend` and `backend`.
+You can either download the ZIP file or use Git to clone it (recommended).
 
-### Step 3: Open the Terminal (Command Prompt)
-1. Inside the extracted project folder, look at the very top of the File Explorer window (the address bar where it shows the path, like `C:\Downloads\LLM-Document-Q-A`).
-2. Click directly on that address bar so the text highlights.
-3. Type `cmd` and press **Enter**.
-4. A black box (Command Prompt) will appear. You will be typing commands into this black box.
+**Option A: Using Git (Easiest for updates)**
+1. Open your terminal or command prompt.
+2. Type the following and press Enter:
+   ```bash
+   git clone https://github.com/sam7eer/LLM-Document-Q-A.git
+   ```
+3. Enter the folder:
+   ```bash
+   cd LLM-Document-Q-A
+   ```
+
+**Option B: Manual Download**
+1. Click the green **"<> Code"** button at the top of this page.
+2. Click **"Download ZIP"**.
+3. Extract the ZIP file and open the folder until you see `README.md`.
+
+### Step 3: Open the Terminal
+*   **Windows**: Type `cmd` in the address bar of the folder and press Enter.
+*   **Mac/Linux**: Right-click in the folder and select "Open in Terminal".
 
 ### Step 4: Set Up the Project (One-Time Only)
-Copy and paste each of the following lines into the black Terminal box, one at a time, and press **Enter** after each one. Let the process finish before doing the next one.
+Run these commands one by one. This sets up your Python environment and installs the frontend tools.
 
-1. Create a safe space for Python (Virtual Environment):
-   ```cmd
-   python -m venv venv
-   ```
+**1. Create and Activate Virtual Environment**
+*   **Windows:**
+    ```cmd
+    python -m venv venv
+    venv\Scripts\activate
+    ```
+*   **Mac/Linux:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+*(You should now see `(venv)` at the start of your command line.)*
 
-2. Turn on the Virtual Environment:
-   ```cmd
-   venv\Scripts\activate
-   ```
-   *(You should now see `(venv)` at the beginning of the text line.)*
+**2. Install Backend Dependencies**
+```bash
+pip install -r backend/requirements.txt
+```
 
-3. Install the Python requirements:
-   ```cmd
-   pip install -r backend\requirements.txt
-   ```
+**3. Install Frontend Dependencies**
+```bash
+cd frontend
+npm install
+cd ..
+```
 
-4. Go into the frontend folder:
-   ```cmd
-   cd frontend
-   ```
-
-5. Install the Node modules:
-   ```cmd
-   npm install
-   ```
-
-6. Go back to the main folder:
-   ```cmd
-   cd ..
-   ```
-
-> **🚨 TROUBLESHOOTING (If Step 1 fails):**
-> Sometimes on Windows, step 1 (`python -m venv venv`) will throw a red error that mentions `ensurepip`. If this happens, your Windows Python is just being stubborn. Don't panic! **You can completely skip Step 1 and Step 2.** Just start at Step 3 (`pip install...`) and the app will still work perfectly.
+> **🚨 TROUBLESHOOTING (If venv fails):**
+> Sometimes on Windows, the command `python -m venv venv` throws an error. If this happens, don't panic! **You can skip Step 4.1 entirely.** Just go straight to Step 4.2 (`pip install...`) and the app will still work.
 
 ### Step 5: Configure the AI (Environment Variables)
 1. Go into the `backend` folder.
 2. You will see a file named `.env.example`.
-3. Make a copy of this file and rename the copy to exactly `.env` (just `.env`, remove the `.example` part).
-   *(If you get a warning about changing file extensions, say Yes).*
-4. Open the new `.env` file with a text editor (like Notepad). You can Right-Click -> "Open with" -> "Notepad".
-5. Find the line that says `GOOGLE_API_KEY=your_google_api_key_here`.
-6. Replace `your_google_api_key_here` with the exact Google API Key you got in Step 1.
-7. Save and close the file.
+3. Make a copy of this file and rename the copy to exactly `.env`.
+4. Open the new `.env` file with a text editor (like Notepad).
+5. Replace `your_google_api_key_here` with your actual Google API Key.
+6. Save and close the file.
 
 ---
 
